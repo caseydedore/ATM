@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1005]C:\Users\nwtech\Documents\Visual Studio 2013\Projects\ATM\ATM\bin\Debug\ATM.dll</TopNode>
-  <SelectedNode>[0-1005]C:\Users\nwtech\Documents\Visual Studio 2013\Projects\ATM\ATM\bin\Debug\ATM.dll</SelectedNode>
+  <TopNode>[0-1009]D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\ATM.dll</TopNode>
+  <SelectedNode>[0-1009]D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\ATM.dll</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1005]C:\Users\nwtech\Documents\Visual Studio 2013\Projects\ATM\ATM\bin\Debug\ATM.dll" Expanded="true" />
-    <Node UniqueName="[0-1006]ATM" Expanded="true" />
+    <Node UniqueName="[0-1009]D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\ATM.dll" Expanded="true" />
+    <Node UniqueName="[0-1010]ATM" Expanded="true" />
     <Node UniqueName="[0-1000]ATM.UT_Account" Expanded="true" />
+    <Node UniqueName="[0-1005]ATM.UT_User" Expanded="true" />
   </Nodes>
 </VisualState>

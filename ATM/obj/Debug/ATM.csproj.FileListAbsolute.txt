@@ -4,3 +4,9 @@ c:\users\nwtech\documents\visual studio 2013\Projects\ATM\ATM\bin\Debug\nunit.fr
 c:\users\nwtech\documents\visual studio 2013\Projects\ATM\ATM\bin\Debug\nunit.framework.xml
 c:\users\nwtech\documents\visual studio 2013\Projects\ATM\ATM\obj\Debug\ATM.dll
 c:\users\nwtech\documents\visual studio 2013\Projects\ATM\ATM\obj\Debug\ATM.pdb
+D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\ATM.dll
+D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\ATM.pdb
+D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\nunit.framework.dll
+D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\nunit.framework.xml
+D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\obj\Debug\ATM.dll
+D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\obj\Debug\ATM.pdb

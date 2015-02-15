@@ -1,18 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\nwtech\Documents\Visual Studio 2013\Projects\ATM\ATM\bin\Debug\ATM.dll" total="4" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-02-12" time="13:39:17">
-  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.5485" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="CIT132-17" user="nwtech" user-domain="CIT132-17" />
+<test-results name="D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\ATM.dll" total="7" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-02-14" time="16:14:44">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8009" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="MACHINA_CASEY" user="Casey DeDore" user-domain="MACHINA_CASEY" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Users\nwtech\Documents\Visual Studio 2013\Projects\ATM\ATM\bin\Debug\ATM.dll" executed="True" result="Success" success="True" time="0.013" asserts="0">
+  <test-suite type="Assembly" name="D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\ATM.dll" executed="True" result="Failure" success="False" time="0.084" asserts="0">
     <results>
-      <test-suite type="Namespace" name="ATM" executed="True" result="Success" success="True" time="0.012" asserts="0">
+      <test-suite type="Namespace" name="ATM" executed="True" result="Failure" success="False" time="0.070" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="UT_Account" executed="True" result="Success" success="True" time="0.011" asserts="0">
+          <test-suite type="TestFixture" name="UT_Account" executed="True" result="Failure" success="False" time="0.060" asserts="0">
             <results>
-              <test-case name="ATM.UT_Account.TestCheckBalance" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+              <test-case name="ATM.UT_Account.TestCheckUserAccountBalances" executed="True" result="Error" success="False" time="0.034" asserts="0">
+                <failure>
+                  <message><![CDATA[System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index]]></message>
+                  <stack-trace><![CDATA[at System.Collections.Generic.List`1.get_Item(Int32 index)
+at ATM.UT_Account.TestCheckUserAccountBalances() in d:\LCC_Classes\SystemDesign\Week06\ATM\ATM\UnitTests.cs:line 23
+]]></stack-trace>
+                </failure>
+              </test-case>
               <test-case name="ATM.UT_Account.TestDeposit" executed="True" result="Success" success="True" time="0.000" asserts="0" />
               <test-case name="ATM.UT_Account.TestTransfer" executed="True" result="Success" success="True" time="0.000" asserts="0" />
               <test-case name="ATM.UT_Account.TestWithdraw" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="UT_User" executed="True" result="Success" success="True" time="0.006" asserts="0">
+            <results>
+              <test-case name="ATM.UT_User.TestTransfer" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+              <test-case name="ATM.UT_User.TestUserAccounts" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+              <test-case name="ATM.UT_User.TestUserLogin" executed="True" result="Success" success="True" time="0.000" asserts="0" />
             </results>
           </test-suite>
         </results>

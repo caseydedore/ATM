@@ -8,13 +8,30 @@ using NUnit.Framework;
 namespace ATM
 {
     [TestFixture]
-    class UT_Account
+    class UT_UserAccount
     {
         [Test]
-        public void TestCheckBalance()
+        public void TestCheckUserAccountBalances()
         {
             //is the correct balance coming back?
-            //Assert.AreEqual();
+            int tempNum = 10101010,
+                tempNum02 = 11111111;
+            User user = new User();
+            user.CreateAccount(tempNum);
+            user.CreateAccount(tempNum02);
+
+            Account accnt = user.Accnts[1];
+            if (accnt != null)
+            {
+                accnt.Balance = 102.12m;
+            }
+            else Assert.IsTrue(false);
+
+            //does the user method for checking balance match the balance property in the account itself?
+            foreach (Account act in user.Accnts)
+            {
+                Assert.AreEqual(act.Balance, user.CheckBalance(act.AccountNum));
+            }
         }
 
         [Test]
@@ -34,28 +51,5 @@ namespace ATM
         {
             //test to make sure the amount specified is removed from the sender acct and added to the receiver acct
         }  
-    }
-
-    [TestFixture]
-    class UT_User
-    {
-        [Test]
-        public void TestUserAccounts()
-        {
-           //create a few test users that do not have accts and others that do. Make sure that the users that have accts have accts 0.0
-        }
-
-        [Test]
-        public void TestTransfer()
-        {
-            //does the correct amount of money get removed from the specified acct and added to the destination acct
-            //does the operation fail if there is not enough money in the first acct to withdraw from
-        }
-
-        [Test]
-        public void TestUserLogin
-        {
-            //create user with specified PIN. Test the login functionality to see if the specified PIN allows login
-        }
     }
 }
