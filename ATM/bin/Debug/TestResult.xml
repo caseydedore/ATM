@@ -1,40 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\ATM.dll" total="5" errors="2" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-02-15" time="15:16:32">
+<test-results name="D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\ATM.dll" total="5" errors="5" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-02-15" time="17:49:57">
   <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8009" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="MACHINA_CASEY" user="Casey DeDore" user-domain="MACHINA_CASEY" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\ATM.dll" executed="True" result="Failure" success="False" time="0.101" asserts="0">
+  <test-suite type="Assembly" name="D:\LCC_Classes\SystemDesign\Week06\ATM\ATM\bin\Debug\ATM.dll" executed="True" result="Failure" success="False" time="0.070" asserts="0">
     <results>
-      <test-suite type="Namespace" name="ATM" executed="True" result="Failure" success="False" time="0.086" asserts="0">
+      <test-suite type="Namespace" name="ATM" executed="True" result="Failure" success="False" time="0.069" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="UT_UserAccount" executed="True" result="Failure" success="False" time="0.084" asserts="0">
+          <test-suite type="TestFixture" name="UT_UserAccount" executed="True" result="Failure" success="False" time="0.069" asserts="0">
             <results>
-              <test-case name="ATM.UT_UserAccount.TestDeposit" executed="True" result="Success" success="True" time="0.017" asserts="0" />
-              <test-case name="ATM.UT_UserAccount.TestTransfer" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-              <test-case name="ATM.UT_UserAccount.TestUserAccountBalances" executed="True" result="Error" success="False" time="0.010" asserts="0">
+              <test-case name="ATM.UT_UserAccount.TestDeposit" executed="True" result="Error" success="False" time="0.000" asserts="0">
                 <failure>
-                  <message><![CDATA[System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection.
+                  <message><![CDATA[SetUp : System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection.
 Parameter name: index]]></message>
-                  <stack-trace><![CDATA[at System.Collections.Generic.List`1.get_Item(Int32 index)
-at ATM.UT_UserAccount.TestUserAccountBalances() in d:\LCC_Classes\SystemDesign\Week06\ATM\ATM\UnitTests.cs:line 46
+                  <stack-trace><![CDATA[at System.Collections.Generic.List`1.set_Item(Int32 index, T value)
+at ATM.UT_UserAccount.Setup() in d:\LCC_Classes\SystemDesign\Week06\ATM\ATM\UnitTests.cs:line 28
 ]]></stack-trace>
                 </failure>
               </test-case>
-              <test-case name="ATM.UT_UserAccount.TestUserAccountCreation" executed="True" result="Failure" success="False" time="0.018" asserts="1">
+              <test-case name="ATM.UT_UserAccount.TestTransfer" executed="True" result="Error" success="False" time="0.000" asserts="0">
                 <failure>
-                  <message><![CDATA[  Expected: 3
-  But was:  0
-]]></message>
-                  <stack-trace><![CDATA[at ATM.UT_UserAccount.TestUserAccountCreation() in d:\LCC_Classes\SystemDesign\Week06\ATM\ATM\UnitTests.cs:line 37
+                  <message><![CDATA[SetUp : System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index]]></message>
+                  <stack-trace><![CDATA[at System.Collections.Generic.List`1.set_Item(Int32 index, T value)
+at ATM.UT_UserAccount.Setup() in d:\LCC_Classes\SystemDesign\Week06\ATM\ATM\UnitTests.cs:line 28
 ]]></stack-trace>
                 </failure>
               </test-case>
-              <test-case name="ATM.UT_UserAccount.TestWithdraw" executed="True" result="Error" success="False" time="0.001" asserts="0">
+              <test-case name="ATM.UT_UserAccount.TestUserAccountBalances" executed="True" result="Error" success="False" time="0.000" asserts="0">
                 <failure>
-                  <message><![CDATA[System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection.
+                  <message><![CDATA[SetUp : System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection.
 Parameter name: index]]></message>
-                  <stack-trace><![CDATA[at System.Collections.Generic.List`1.get_Item(Int32 index)
-at ATM.UT_UserAccount.TestWithdraw() in d:\LCC_Classes\SystemDesign\Week06\ATM\ATM\UnitTests.cs:line 67
+                  <stack-trace><![CDATA[at System.Collections.Generic.List`1.set_Item(Int32 index, T value)
+at ATM.UT_UserAccount.Setup() in d:\LCC_Classes\SystemDesign\Week06\ATM\ATM\UnitTests.cs:line 28
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="ATM.UT_UserAccount.TestUserAccountCreation" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                <failure>
+                  <message><![CDATA[SetUp : System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index]]></message>
+                  <stack-trace><![CDATA[at System.Collections.Generic.List`1.set_Item(Int32 index, T value)
+at ATM.UT_UserAccount.Setup() in d:\LCC_Classes\SystemDesign\Week06\ATM\ATM\UnitTests.cs:line 28
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="ATM.UT_UserAccount.TestWithdraw" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                <failure>
+                  <message><![CDATA[SetUp : System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index]]></message>
+                  <stack-trace><![CDATA[at System.Collections.Generic.List`1.set_Item(Int32 index, T value)
+at ATM.UT_UserAccount.Setup() in d:\LCC_Classes\SystemDesign\Week06\ATM\ATM\UnitTests.cs:line 28
 ]]></stack-trace>
                 </failure>
               </test-case>
