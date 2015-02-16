@@ -20,7 +20,7 @@ namespace ATM
 
         public decimal Balance { get { return balance; } set { balance = value; } }
 
-        public int AccountNum { get { return accountNum; } }
+        public int AccountNum { get { return accountNum; } set { accountNum = value; } }
 
         public bool Withdraw(decimal withdrawal)
         {

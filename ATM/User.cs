@@ -11,16 +11,9 @@ namespace ATM
         private int pinNumber;
         private List<Account> accounts = new List<Account>();
 
-        public User() { }
+        public User() { }        
 
-        public bool Login(int inputPin)
-        {
-            return inputPin == pinNumber;
-        }
-
-        //public Account Accnt { get { return account; } set { account = value; } }
-
-        public List<Account> Accnts
+        public List<Account> Accounts
         {
             get
             { return accounts; }
@@ -28,17 +21,24 @@ namespace ATM
             { accounts = value; }
         }
 
-        public void CreateAccount(int acctNum)
-        {
-            //will the acctNum be auto-generated externally?
-            //accounts.Add(account);
-        }
-
         public int PinNumber
         {
             get { return pinNumber; }
             set { pinNumber = value; }
         }
+
+        public bool Login(int inputPin)
+        {
+            return inputPin == pinNumber;
+        }
+
+        public void CreateAccount(int acctNum)
+        {
+            //will the acctNum be auto-generated externally? 
+
+            Account acct = new Account { AccountNum = acctNum };
+            accounts.Add(acct);
+        }        
 
         public bool Transfer(int acctNumSend, int acctNumReceive, decimal amnt) 
         {
@@ -50,6 +50,7 @@ namespace ATM
             if(success) success = n2.Deposit(amnt);
             return success;
             */
+            //This looks nice, I like it -JW
 
             return true;
         }
