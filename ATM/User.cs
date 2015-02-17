@@ -35,6 +35,8 @@ namespace ATM
         public void CreateAccount(int acctNum)
         {
             //will the acctNum be auto-generated externally? 
+            /*Don't think it matters really, because at a real ATM you wouldn't create an account.
+              We just need to in this instance to generate test data. JW*/
 
             Account acct = new Account { AccountNum = acctNum };
             accounts.Add(acct);
@@ -50,7 +52,10 @@ namespace ATM
             if(success) success = n2.Deposit(amnt);
             return success;
             */
-            //This looks nice, I like it -JW
+            //This looks nice, I like it, not quite sure how to implement yet though. -JW
+
+            Withdraw(acctNumSend, amnt);
+            Deposit(acctNumReceive, amnt);
 
             return true;
         }
@@ -58,19 +63,63 @@ namespace ATM
         public bool Withdraw(int acctNum, decimal amnt)
         {
             //find the account matching the param number, withdraw
-            return true;
+
+            decimal startBal;
+            bool success = false;
+
+            foreach(Account a in accounts)
+            {
+                if (a.AccountNum == acctNum && amnt > 0)
+                {
+                    startBal = a.Balance;
+                    a.Withdraw(amnt);
+                    if (a.Balance == (startBal - amnt))
+                    {
+                        success = true;
+                    }
+                    break;
+                }                
+            }
+            return success;
         }
 
         public bool Deposit(int acctNum, decimal amnt)
         {
             //find the account matching the param number, deposit specified amnt
-            return true;
+
+            decimal startBal;
+            bool success = false;
+
+            foreach (Account a in accounts)
+            {
+                if (a.AccountNum == acctNum && amnt > 0)
+                {
+                    startBal = a.Balance;
+                    a.Deposit(amnt);
+                    if (a.Balance == startBal + amnt)
+                    {
+                        success = true;   
+                    }
+                    break;
+                }
+            }
+
+            return success;
         }
 
-        public int CheckBalance(int acctNum)
+        public decimal CheckBalance(int acctNum)
         {
             //this will find the account matching the acct number and ask it to return its balance. That balance will be returned from here
-            return 0;
+            decimal balance = 0;
+            foreach (Account a in accounts)
+            {
+                if (a.AccountNum == acctNum)
+                {
+                    balance = a.CheckBalance();
+                    break;
+                }
+            }
+            return balance;
         }
     }
 }

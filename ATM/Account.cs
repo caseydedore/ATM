@@ -24,13 +24,19 @@ namespace ATM
 
         public bool Withdraw(decimal withdrawal)
         {
-            balance -= withdrawal;
+            if (balance >= withdrawal)
+            {
+                balance -= withdrawal; 
+            }
             return true;
         }
 
         public bool Deposit(decimal deposit)
         {
-            balance += deposit;
+            if (deposit > 0)
+            {
+                balance += deposit; 
+            }
             return true;
         }
 
