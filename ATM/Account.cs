@@ -10,6 +10,7 @@ namespace ATM
     {
         private decimal balance;
         private int accountNum;
+        private string type = "Savings";
 
         public Account() { }
 
@@ -22,22 +23,26 @@ namespace ATM
 
         public int AccountNum { get { return accountNum; } set { accountNum = value; } }
 
+        public string Type { get { return type; } set { type = value; } }
+
         public bool Withdraw(decimal withdrawal)
         {
             if (balance >= withdrawal)
             {
-                balance -= withdrawal; 
+                balance -= withdrawal;
+                return true;
             }
-            return true;
+            return false;
         }
 
         public bool Deposit(decimal deposit)
         {
             if (deposit > 0)
             {
-                balance += deposit; 
+                balance += deposit;
+                return true;
             }
-            return true;
+            return false;
         }
 
         public decimal CheckBalance()

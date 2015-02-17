@@ -54,10 +54,14 @@ namespace ATM
             */
             //This looks nice, I like it, not quite sure how to implement yet though. -JW
 
-            Withdraw(acctNumSend, amnt);
-            Deposit(acctNumReceive, amnt);
-
-            return true;
+            if ((acctNumSend != acctNumReceive) && Withdraw(acctNumSend, amnt))
+            {
+                if (Deposit(acctNumReceive, amnt))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public bool Withdraw(int acctNum, decimal amnt)
@@ -72,15 +76,15 @@ namespace ATM
                 if (a.AccountNum == acctNum && amnt > 0)
                 {
                     startBal = a.Balance;
-                    a.Withdraw(amnt);
-                    if (a.Balance == (startBal - amnt))
-                    {
-                        success = true;
-                    }
+                     success = a.Withdraw(amnt);
+                    //if (a.Balance == (startBal - amnt))
+                    //{
+                    //    success = true;
+                    //}
                     break;
                 }                
             }
-            return success;
+           return success;
         }
 
         public bool Deposit(int acctNum, decimal amnt)

@@ -1,15 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\Jesse\Desktop\ATM\ATM\ATM\bin\Debug\ATM.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-02-16" time="19:40:17">
+<test-results name="C:\Users\Jesse\Desktop\ATM\ATM\ATM\bin\Debug\ATM.dll" total="7" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-02-17" time="13:03:35">
   <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8009" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="DIONYSUS" user="Jesse" user-domain="DIONYSUS" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Users\Jesse\Desktop\ATM\ATM\ATM\bin\Debug\ATM.dll" executed="True" result="Success" success="True" time="0.085" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\Jesse\Desktop\ATM\ATM\ATM\bin\Debug\ATM.dll" executed="True" result="Success" success="True" time="0.071" asserts="0">
     <results>
-      <test-suite type="Namespace" name="ATM" executed="True" result="Success" success="True" time="0.066" asserts="0">
+      <test-suite type="Namespace" name="ATM" executed="True" result="Success" success="True" time="0.070" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="UT_UserAccount" executed="True" result="Success" success="True" time="0.063" asserts="0">
+          <test-suite type="TestFixture" name="UT_UserAccount" executed="True" result="Success" success="True" time="0.069" asserts="0">
             <results>
-              <test-case name="ATM.UT_UserAccount.TestTransfer" executed="True" result="Success" success="True" time="0.050" asserts="4" />
+              <test-case name="ATM.UT_UserAccount.TestDeposit" executed="True" result="Success" success="True" time="0.005" asserts="6" />
+              <test-case name="ATM.UT_UserAccount.TestLogin" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+              <test-case name="ATM.UT_UserAccount.TestLogout" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+              <test-case name="ATM.UT_UserAccount.TestTransfer" executed="True" result="Success" success="True" time="0.000" asserts="15" />
+              <test-case name="ATM.UT_UserAccount.TestUserAccountBalances" executed="True" result="Success" success="True" time="0.010" asserts="4" />
+              <test-case name="ATM.UT_UserAccount.TestUserAccountCreation" executed="True" result="Success" success="True" time="0.008" asserts="1" />
+              <test-case name="ATM.UT_UserAccount.TestWithdraw" executed="True" result="Success" success="True" time="0.004" asserts="5" />
             </results>
           </test-suite>
         </results>
