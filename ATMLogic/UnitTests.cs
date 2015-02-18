@@ -158,13 +158,14 @@ namespace ATMLogic
         [Test]
         public void TestLogin()
         {
+            //This test will be used for the ATMLogic class. It contains the login method that will return a user
             Assert.True(true);
         }
 
         [Test]
         public void TestLogout()
         {
-            //TODO
+            //Also for the ATMLogic class. Simply make sure the current user gets nullified.
             Assert.True(true);
         }
     }

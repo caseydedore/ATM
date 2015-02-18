@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMLogic", "ATMLogic\ATMLogic.csproj", "{F40B33FE-DCE8-4F9A-9520-6D5E04434FB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMConsole", "ATMConsole\ATMConsole.csproj", "{532AC093-3C24-4D10-95FC-803A2E83AFC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F40B33FE-DCE8-4F9A-9520-6D5E04434FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F40B33FE-DCE8-4F9A-9520-6D5E04434FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F40B33FE-DCE8-4F9A-9520-6D5E04434FB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{532AC093-3C24-4D10-95FC-803A2E83AFC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{532AC093-3C24-4D10-95FC-803A2E83AFC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{532AC093-3C24-4D10-95FC-803A2E83AFC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{532AC093-3C24-4D10-95FC-803A2E83AFC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

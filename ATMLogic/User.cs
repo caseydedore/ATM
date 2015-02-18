@@ -111,5 +111,29 @@ namespace ATMLogic
             }
             return balance;
         }
+
+        public List<int> GetAccountNumbers()
+        {
+            List<int> tmp = new List<int>();
+
+            foreach(Account n in accounts)
+            {
+                tmp.Add(n.AccountNum);
+            }
+
+            return tmp;
+        }
+
+        public List<string> GetAccountTypes()
+        {
+            List<string> tmp = new List<string>();
+
+            foreach (Account n in accounts)
+            {
+                tmp.Add(n.Type);
+            }
+
+            return tmp;
+        }
     }
 }

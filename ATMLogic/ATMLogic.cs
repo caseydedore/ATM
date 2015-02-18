@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATMLogic
 {
-    class ATMLogic
+    public class ATM
     {
         //this is the user that is currently being used (or null)
         private User currentUser { get; set; }
@@ -45,6 +45,24 @@ namespace ATMLogic
             if (currentUser == null) return false;
 
             return currentUser.Transfer(senderAccntNum, receiverAccntNum, amnt);
+        }
+
+        public decimal GetCurrentUserBalance(int acctNum)
+        {
+            if (currentUser == null) return 0;
+            return currentUser.CheckBalance(acctNum);
+        }
+
+        public List<int> GetCurrentUserAccountNumbers()
+        {
+            if (currentUser == null) return null;
+            return currentUser.GetAccountNumbers();
+        }
+
+        public List<string> GetCurrentUserAccountTypes()
+        {
+            if (currentUser == null) return null;
+            return currentUser.GetAccountTypes();
         }
     }
 }
