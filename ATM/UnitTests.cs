@@ -158,7 +158,7 @@ namespace ATM
         [Test]
         public void TestLogin()
         {
-            Assert.True()
+            Assert.True(true);
         }
 
         [Test]
