@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ATM
+namespace ATMLogic
 {
-    class Account
+    internal class Account
     {
         private decimal balance;
         private int accountNum;
         private string type = "Savings";
+
 
         public Account() { }
 

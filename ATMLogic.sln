@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM", "ATM\ATM.csproj", "{F40B33FE-DCE8-4F9A-9520-6D5E04434FB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMLogic", "ATMLogic\ATMLogic.csproj", "{F40B33FE-DCE8-4F9A-9520-6D5E04434FB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

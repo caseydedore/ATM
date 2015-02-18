@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ATM
+namespace ATMLogic
 {
-    class User
+    internal class User
     {
         private int pinNumber;
         private List<Account> accounts = new List<Account>();
 
-        public User() { }        
 
         public List<Account> Accounts
         {
@@ -27,32 +26,19 @@ namespace ATM
             set { pinNumber = value; }
         }
 
-        public bool Login(int inputPin)
-        {
-            return inputPin == pinNumber;
-        }
-
         public void CreateAccount(int acctNum)
         {
             //will the acctNum be auto-generated externally? 
             /*Don't think it matters really, because at a real ATM you wouldn't create an account.
               We just need to in this instance to generate test data. JW*/
 
-            Account acct = new Account { AccountNum = acctNum };
+            Account acct = new Account{ AccountNum = acctNum };
             accounts.Add(acct);
         }        
 
         public bool Transfer(int acctNumSend, int acctNumReceive, decimal amnt) 
         {
             //find the accts with the matching nums. Withdraw from one and deposit to another the specified amount
-
-            /* This is how it might look (n1 and n2 are the sender and receiver accounts)
-             * 
-            bool success = n1.Withdraw(amnt);
-            if(success) success = n2.Deposit(amnt);
-            return success;
-            */
-            //This looks nice, I like it, not quite sure how to implement yet though. -JW
 
             if ((acctNumSend != acctNumReceive) && Withdraw(acctNumSend, amnt))
             {
