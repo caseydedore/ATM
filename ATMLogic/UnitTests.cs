@@ -13,6 +13,9 @@ namespace ATMLogic
         public int[] testAcctNums;
         User user;
 
+        ATM testATM = new ATM();
+
+
 
         [SetUp]
         public void Setup()
@@ -156,17 +159,19 @@ namespace ATMLogic
         }
 
         [Test]
-        public void TestLogin()
+        public void TestLoginLogout()
         {
             //This test will be used for the ATMLogic class. It contains the login method that will return a user
-            Assert.True(true);
-        }
 
-        [Test]
-        public void TestLogout()
-        {
-            //Also for the ATMLogic class. Simply make sure the current user gets nullified.
-            Assert.True(true);
+
+            Assert.False(testATM.Login(1312));
+            //test log in with wrong pin
+
+            Assert.True(testATM.Login(1313));
+            //test log in with correct pin
+
+            Assert.True(testATM.Logout());
+            //test user log out
         }
     }
 }
