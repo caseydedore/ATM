@@ -163,7 +163,6 @@ namespace ATMLogic
         {
             //This test will be used for the ATMLogic class. It contains the login method that will return a user
 
-
             Assert.False(testATM.Login(1312));
             //test log in with wrong pin
 
@@ -172,6 +171,35 @@ namespace ATMLogic
 
             Assert.True(testATM.Logout());
             //test user log out
+        }
+               
+        [Test]
+        public void TestATMLogicWithoutCurrentUser()
+        {
+            // These will test that the functions of the ATM will not work while not logged in
+            testATM.Logout();
+
+            Assert.False(testATM.Withdraw(1313, 200));
+            Assert.False(testATM.Deposit(1313, 200));
+            Assert.False(testATM.Transfer(1313, 4321, 200));
+            Assert.AreEqual(testATM.GetCurrentUserBalance(10505014), 0);
+            Assert.IsNull(testATM.GetCurrentUserAccountNumbers());
+            Assert.IsNull(testATM.GetCurrentUserAccountTypes());            
+        }
+
+         [Test]
+        public void TestATMLogicWithCurrentUser()
+        {
+            testATM.Login(1313);  // Log in
+
+            // These will test that the functions of the ATM WILL work while logged in
+
+            Assert.True(testATM.Withdraw(10928463, 200));
+            Assert.True(testATM.Deposit(10928463, 200));
+            Assert.True(testATM.Transfer(10928463, 10505014, 200));
+            Assert.Greater(testATM.GetCurrentUserBalance(10505014), 0);
+            Assert.IsNotNull(testATM.GetCurrentUserAccountNumbers());
+            Assert.IsNotNull(testATM.GetCurrentUserAccountTypes());
         }
     }
 }
