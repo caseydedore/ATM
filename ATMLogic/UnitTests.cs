@@ -12,9 +12,8 @@ namespace ATMLogic
     {
         public int[] testAcctNums;
         User user;
-
         ATM testATM = new ATM();
-
+        UserData uData = new UserData();
 
 
         [SetUp]
@@ -200,6 +199,16 @@ namespace ATMLogic
             Assert.Greater(testATM.GetCurrentUserBalance(10505014), 0);
             Assert.IsNotNull(testATM.GetCurrentUserAccountNumbers());
             Assert.IsNotNull(testATM.GetCurrentUserAccountTypes());
+        }
+
+        [Test]
+        public void TestGetUser()
+        {
+            // The user's should match
+            Assert.AreEqual(testATM.Login(1313), uData.GetUser(1313));
+
+            // The user's shouldn't match 
+            Assert.AreNotSame(testATM.Login(1653), uData.GetUser(1313));
         }
     }
 }
