@@ -52,6 +52,9 @@ namespace ATMConsole
                 while (loginLoop == false);
 
                 Console.WriteLine("Logged in successfully.\n");
+                Console.WriteLine("press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
 
                 do
                 {
@@ -159,6 +162,7 @@ namespace ATMConsole
 
             do
             {
+                Console.WriteLine();
                 Console.WriteLine("Please enter a PIN.");
                 string pinInput = Console.ReadLine();
                 try
@@ -178,7 +182,15 @@ namespace ATMConsole
                 else { Console.WriteLine("Please enter a valid integer PIN"); }
             } while (validPin == false);
 
-            return atm.Login(pinInt);
+            if (atm.Login(pinInt) == true)
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("LogIn failed, please try again.");
+                return false;
+            }
         }
 
         static void CheckBalanceSequence() //TODO
