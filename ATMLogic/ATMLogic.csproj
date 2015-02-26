@@ -46,7 +46,6 @@
     <Compile Include="Account.cs" />
     <Compile Include="ATMLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTests.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserData.cs" />
   </ItemGroup>
