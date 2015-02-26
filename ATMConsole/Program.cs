@@ -99,7 +99,7 @@ namespace ATMConsole
             Console.WriteLine("----------------------------------------------------------------------");
             for (int i = 0; i < userAccountsNums.Count; i++)
             {
-                Console.Write(userAccountsNums[i].ToString() + "    " + userAccountTypes[i] + "         ");
+                Console.Write((i + 1) + ": " + userAccountsNums[i].ToString() + "    " + userAccountTypes[i] + "         ");
                 Console.WriteLine(atm.GetCurrentUserBalance(userAccountsNums[i]));
             }
             Console.WriteLine("----------------------------------------------------------------------");
@@ -207,7 +207,76 @@ namespace ATMConsole
 
         static void WithdrawalSequence() //TODO
         {
-            Console.WriteLine("*Withdrawal Sequence*");
+            int selectedAccount = -1;
+            string selectedAccountInput = "";
+
+            decimal withdrawAmount = -1;
+            string withDrawAmountInput = "";
+
+            bool success = false;
+            bool validAccount = true;
+            bool validAmount = true;
+
+            List<int> userAccountsNums = atm.GetCurrentUserAccountNumbers();
+            List<string> userAccountTypes = atm.GetCurrentUserAccountTypes();
+
+            do
+            {
+                do
+                {
+                    validAccount = true;
+
+                    Console.Clear();
+                    Console.WriteLine("*Withdrawal Sequence*");
+                    Console.WriteLine("Please select an account from the numbered list below.");
+
+                    for (int i = 0; i < userAccountsNums.Count; i++)
+                    {
+                        Console.Write((i + 1) + ": " + userAccountsNums[i].ToString() + "    " + userAccountTypes[i] + "         ");
+                        Console.WriteLine(atm.GetCurrentUserBalance(userAccountsNums[i]));
+                    }
+
+                    selectedAccountInput = Console.ReadLine();
+
+                    try
+                    { selectedAccount = Convert.ToInt32(selectedAccountInput); }
+                    catch (FormatException e)
+                    { Console.WriteLine("The entered choice must be a number."); validAccount = false; }
+                    catch (OverflowException e)
+                    { Console.WriteLine("The entered value is too large."); validAccount = false; }
+
+                    if (selectedAccount < 1 || selectedAccount > userAccountsNums.Count) { validAccount = false; }
+                    if (validAccount == false) { Console.WriteLine("Please enter a valid selection."); Console.ReadKey(); }
+                } while (validAccount == false);
+                
+
+                do
+                {
+                    validAmount = true;
+                    Console.WriteLine("Please enter amount to withdraw.");
+                    withDrawAmountInput = Console.ReadLine();
+
+                    try
+                    { withdrawAmount = Convert.ToDecimal(withDrawAmountInput); }
+                    catch (FormatException e)
+                    { Console.WriteLine("The entered choice must be a number."); validAmount = false; }
+                    catch (OverflowException e)
+                    { Console.WriteLine("The entered value is too large."); validAmount = false; }
+
+
+                } while (validAmount == false);
+                
+
+
+
+                success = atm.Withdraw(userAccountsNums[selectedAccount - 1], withdrawAmount);
+
+                if (success == false) { Console.WriteLine("Insufficient funds, please try again.\n"); }
+            }
+            while (success == false);
+
+            
+
         }
 
         static void DepositSequence() //TODO
