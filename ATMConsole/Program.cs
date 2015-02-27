@@ -296,45 +296,45 @@ namespace ATMConsole
             Console.WriteLine("----------------------------------------------------------------------");
 
             Console.WriteLine();
-            Console.WriteLine("Please select an account to deposit into");
-            Console.WriteLine();
+            Console.WriteLine("What account would you like to deposit into?");
 
             while (selectedAcct == 0)
             {
                 try
                 {
                     selectedAcct = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
 
                     Console.WriteLine("How much would you like to deposit into your" + " " +
                         userAccountTypes[selectedAcct - 1] + " " + "account?");
-                    Console.WriteLine();
-
-                    while (amount == 0)
-                    {
-                        try
-                        {
-                            amount = decimal.Parse(Console.ReadLine());
-                        }
-                        catch (FormatException)
-                        {
-                            Console.WriteLine("You must enter a number greater than 0 and no larger than your account balance");
-                        } 
-                    }
-                    
-                    bool success = atm.Deposit(userAccountsNums[selectedAcct - 1], amount);
-
-                    if (success == true)
-                    {
-                        Console.WriteLine("Deposit Successful.  Thank you for your business.");
-                    }
-                    // Ends deposit sequence
                 }
                 catch (FormatException)
                 {
                     Console.WriteLine("You must enter 1 through " + userAccountsNums.Count.ToString());
-                } 
+                }
             }
 
+                while (amount == 0)
+                {
+                    try
+                    {
+                        amount = decimal.Parse(Console.ReadLine());
+                        Console.WriteLine();
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("You must enter a number greater than 0 and no larger than your account balance");
+                    }
+                }
+
+                bool success = atm.Deposit(userAccountsNums[selectedAcct - 1], amount);
+
+                if (success == true)
+                {
+                    Console.WriteLine("Deposit Successful.  Here are your current account balances:");
+                    Console.WriteLine();
+                    TEST_CurrentUserDetails();
+                }          
         }
 
         static void TransferSequence() // Almost done, will polish off -JW
@@ -358,17 +358,15 @@ namespace ATMConsole
             Console.WriteLine("----------------------------------------------------------------------");
 
             Console.WriteLine();
-            Console.WriteLine("Please select the account you would like to withdraw from to begin the transfer");
-            Console.WriteLine();
+            Console.WriteLine("Select account to transfer from:");
 
             while (withdrawFrom == 0)
             {
                 try
                 {
                     withdrawFrom = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Select account to transfer money into");
                     Console.WriteLine();
+                    Console.WriteLine("Select account to transfer to:");
                 }
                 catch (FormatException)
                 {
@@ -381,6 +379,7 @@ namespace ATMConsole
                 try
                 {
                     depositTo = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
                     Console.WriteLine("Enter an amount to transfer");
                 }
                 catch (FormatException)
@@ -394,6 +393,7 @@ namespace ATMConsole
                 try
                 {
                     amount = decimal.Parse(Console.ReadLine());
+                    Console.WriteLine();
                 }
                 catch (FormatException)
                 {
@@ -409,6 +409,10 @@ namespace ATMConsole
             {
                 Console.WriteLine("Enter a valid number");
             }
+
+            Console.WriteLine("Transfer Successful.  Here are your current account balances:");
+            Console.WriteLine();
+            TEST_CurrentUserDetails();
         }
 
         static bool LogoutSequence() //Done
