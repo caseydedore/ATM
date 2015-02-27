@@ -317,7 +317,7 @@ namespace ATMConsole
                         }
                         catch (FormatException)
                         {
-                            Console.WriteLine("You must enter a number great than 0 and no larger than your account balance");
+                            Console.WriteLine("You must enter a number greater than 0 and no larger than your account balance");
                         } 
                     }
                     
@@ -337,9 +337,78 @@ namespace ATMConsole
 
         }
 
-        static void TransferSequence() //TODO
+        static void TransferSequence() // Almost done, will polish off -JW
         {
+            List<int> userAccountsNums = atm.GetCurrentUserAccountNumbers();
+            List<string> userAccountTypes = atm.GetCurrentUserAccountTypes();
+            int withdrawFrom = 0;
+            int depositTo = 0;
+            decimal amount = 0;
+
+            Console.Clear();
             Console.WriteLine("*Transfer Sequence*");
+            Console.WriteLine();
+
+            Console.WriteLine("----------------------------------------------------------------------");
+            for (int i = 0; i < userAccountsNums.Count; i++)
+            {
+                Console.Write((i + 1) + ": " + userAccountsNums[i].ToString() + "    " + userAccountTypes[i] + "         ");
+                Console.WriteLine(atm.GetCurrentUserBalance(userAccountsNums[i]));
+            }
+            Console.WriteLine("----------------------------------------------------------------------");
+
+            Console.WriteLine();
+            Console.WriteLine("Please select the account you would like to withdraw from to begin the transfer");
+            Console.WriteLine();
+
+            while (withdrawFrom == 0)
+            {
+                try
+                {
+                    withdrawFrom = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Select account to transfer money into");
+                    Console.WriteLine();
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("You must enter 1 through " + userAccountsNums.Count.ToString());
+                }
+            }
+
+            while (depositTo == 0)
+            {
+                try
+                {
+                    depositTo = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter an amount to transfer");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("You must enter 1 through " + userAccountsNums.Count.ToString());
+                }
+            }
+
+            while (amount == 0)
+            {
+                try
+                {
+                    amount = decimal.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("You must enter a number");
+                }
+            }
+
+            try
+            {
+                atm.Transfer(userAccountsNums[withdrawFrom - 1], userAccountsNums[depositTo - 1], amount);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Enter a valid number");
+            }
         }
 
         static bool LogoutSequence() //Done
