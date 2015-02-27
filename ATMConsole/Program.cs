@@ -14,9 +14,6 @@ namespace ATMConsole
 
         static void Main(string[] args)
         {
-
-
-
             //program loop
             //Display login options
                 //login choice 
@@ -205,7 +202,7 @@ namespace ATMConsole
 
         }
 
-        static void WithdrawalSequence() //TODO
+        static void WithdrawalSequence() //TODO - seems to be done though?
         {
             int selectedAccount = -1;
             string selectedAccountInput = "";
@@ -279,10 +276,67 @@ namespace ATMConsole
 
         }
 
-        static void DepositSequence() //TODO
+        static void DepositSequence() // done -JW
         {
+            List<int> userAccountsNums = atm.GetCurrentUserAccountNumbers();
+            List<string> userAccountTypes = atm.GetCurrentUserAccountTypes();
+            int selectedAcct = 0;
+            decimal amount = 0;
+
+            Console.Clear();
             Console.WriteLine("*Deposit Sequence*");
+            Console.WriteLine();
+
+            Console.WriteLine("----------------------------------------------------------------------");
+            for (int i = 0; i < userAccountsNums.Count; i++)
+            {
+                Console.Write((i + 1) + ": " + userAccountsNums[i].ToString() + "    " + userAccountTypes[i] + "         ");
+                Console.WriteLine(atm.GetCurrentUserBalance(userAccountsNums[i]));
+            }
+            Console.WriteLine("----------------------------------------------------------------------");
+
+            Console.WriteLine();
+            Console.WriteLine("Please select an account to deposit into");
+            Console.WriteLine();
+
+            while (selectedAcct == 0)
+            {
+                try
+                {
+                    selectedAcct = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("How much would you like to deposit into your" + " " +
+                        userAccountTypes[selectedAcct - 1] + " " + "account?");
+                    Console.WriteLine();
+
+                    while (amount == 0)
+                    {
+                        try
+                        {
+                            amount = decimal.Parse(Console.ReadLine());
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("You must enter a number great than 0 and no larger than your account balance");
+                        } 
+                    }
+                    
+                    bool success = atm.Deposit(userAccountsNums[selectedAcct - 1], amount);
+
+                    if (success == true)
+                    {
+                        Console.WriteLine("Deposit Successful.  Thank you for your business.");
+                    }
+                    // Ends deposit sequence
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("You must enter 1 through " + userAccountsNums.Count.ToString());
+                } 
+            }
+
         }
+
         static void TransferSequence() //TODO
         {
             Console.WriteLine("*Transfer Sequence*");
@@ -301,6 +355,5 @@ namespace ATMConsole
             Console.WriteLine("using one of the prepared account pins,");
             Console.WriteLine("1313, 1653, or 2198.\n\n" );
         }
-
     }
 }
